@@ -4,11 +4,13 @@ from ultralytics.utils.plotting import Annotator
 import numpy as np
 import cv2
 from dotenv import load_dotenv
+import torch
 import os
 
 
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 MODEL_PATH = './models/best.pt'
-MODEL = YOLO(MODEL_PATH, verbose=False)
+MODEL = YOLO(MODEL_PATH, verbose=False, device=DEVICE)
 
 names_dict = {
     0: 'plane',
