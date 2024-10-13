@@ -10,7 +10,7 @@ import os
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 MODEL_PATH = './models/best.pt'
-MODEL = YOLO(MODEL_PATH, verbose=False, device=DEVICE)
+MODEL = YOLO(MODEL_PATH, verbose=False)
 
 names_dict = {
     0: 'plane',
