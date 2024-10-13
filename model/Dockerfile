@@ -12,4 +12,4 @@ ADD . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["python3", "model.py"]
+ENTRYPOINT ["python3", "app.py"]
