@@ -30,7 +30,7 @@
 git clone https://github.com/Fact0RR/Helicopter_Paracopter.git
 ```
 
-2. Запустить сбору контейнеров:
+2. Запустить сборку контейнеров:
 ```Bash
 cd Helicopter_Paracopter
 docker-compose build
