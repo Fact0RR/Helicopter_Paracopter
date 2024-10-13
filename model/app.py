@@ -10,6 +10,7 @@ from ultralytics import YOLO
 import os
 from dotenv import load_dotenv
 import websocket
+from model import predict
 
 # Загружаем переменные окружения из файла .env
 load_dotenv()
@@ -50,11 +51,13 @@ def gen_video(urlNameFile,key_websocket,rtsp):
         if not ret:
             break
 
+        # предиктим
+        frame = predict(frame)
+
         ret, buffer = cv2.imencode('.jpg', frame)
         if not ret:
             break
-        
-        # nigga
+    
 
         frame_bytes = buffer.tobytes()
         
@@ -94,7 +97,8 @@ def get_image():
     # Декодируем массив в изображение OpenCV
     image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
 
-    # nigga
+    # предиктим
+    image = predict(image)
 
     if image is None:
         return jsonify({'error': 'Не удалось декодировать изображение'}), 400
